@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
@@ -6,6 +6,17 @@ import "swiper/css/pagination";
 import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 
 const PopularClass = () => {
+    const [popularClass, setPopularClass] = useState([]);
+
+    useEffect(()=> {
+        fetch('classes.json')
+        .then(res => res.json())
+        .then(data => {
+            const filteredClasses = data.filter(item => item.category === 'popular');
+            const popularClasses = filteredClasses.sort((a, b) => b.number_of_students - a.number_of_students)
+            setPopularClass(popularClasses)
+        })
+    },[])
     return (
         <section>
             <SectionTitle
@@ -22,41 +33,16 @@ const PopularClass = () => {
         modules={[Pagination]}
         className="mySwiper mb-10"
       >
-        <SwiperSlide>
-            <h3 className='text-2xl uppercase bg-opacity-20 bg-success'>beginner </h3>
-            <img src="https://i.ibb.co/p43pn9Q/pexels-photo-5211446.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-        <h3 className='text-2xl uppercase bg-opacity-20 bg-success'>conversation </h3>
-            <img src="https://i.ibb.co/tp7H4Z6/pexels-photo-8466775.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-        <h3 className='text-2xl uppercase bg-opacity-20 bg-success' >intermediate </h3>
-            <img src="https://i.ibb.co/V3jmtNz/pexels-photo-5211437.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-        <h3 className='text-2xl uppercase bg-opacity-20 bg-success'>advance </h3>
-            <img src="https://i.ibb.co/V3jmtNz/pexels-photo-5211437.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-        <h3 className='text-2xl uppercase bg-opacity-20 bg-success'>beginner </h3>
-            <img src="https://i.ibb.co/ZWgtf5T/pexels-photo-8617956.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-        <h3 className='text-2xl uppercase bg-opacity-20 bg-success'>beginner </h3>
-            <img src="https://i.ibb.co/ZWgtf5T/pexels-photo-8617956.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-        <h3 className='text-2xl uppercase bg-opacity-20 bg-success'>beginner </h3>
-            <img src="https://i.ibb.co/tp7H4Z6/pexels-photo-8466775.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-        <h3 className='text-2xl uppercase bg-opacity-20 bg-success'>beginner </h3>
-        <img src="https://i.ibb.co/V3jmtNz/pexels-photo-5211437.jpg" alt="" /></SwiperSlide>
-        <SwiperSlide>
-        <h3 className='text-2xl uppercase bg-opacity-20 bg-success'>beginner </h3>
-            <img src="https://i.ibb.co/V3jmtNz/pexels-photo-5211437.jpg" alt="" />
-        </SwiperSlide>
+        {
+            popularClass.map((classItem, _id) => (
+                <SwiperSlide 
+                key={_id}
+                >
+                    <h3 className='text-2xl uppercase bg-opacity-20 bg-success'>{classItem.className}</h3>
+                    <img src={classItem.classImage} alt={classItem.className} />
+                </SwiperSlide>
+            ))
+        }
       </Swiper>
         </section>
     );
