@@ -3,10 +3,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
 
 const PopularClass = () => {
     return (
-        <Swiper
+        <section>
+            <SectionTitle
+            heading={'Popular Classes'}
+            subHeading={'based on the number of student'}
+            />
+            <Swiper
         slidesPerView={4}
         spaceBetween={30}
         centeredSlides={true}
@@ -14,7 +20,7 @@ const PopularClass = () => {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="mySwiper mb-10"
       >
         <SwiperSlide>
             <h3 className='text-2xl uppercase bg-opacity-20 bg-success'>beginner </h3>
@@ -52,6 +58,7 @@ const PopularClass = () => {
             <img src="https://i.ibb.co/V3jmtNz/pexels-photo-5211437.jpg" alt="" />
         </SwiperSlide>
       </Swiper>
+        </section>
     );
 };
 
