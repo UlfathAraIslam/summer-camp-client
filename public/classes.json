@@ -1,54 +1,54 @@
 [
     {
       "className": "Japanese Beginner",
-      "classImage": "image_url1.jpg",
+      "classImage": "https://i.ibb.co/TKRWJt5/pexels-photo-5212695.jpg",
       "instructorName": "Yuko Tanaka",
-      "instructorImage": "instructor_image_url1.jpg",
+      "instructorImage": "https://i.ibb.co/19nQx2f/pexels-photo-220453.jpg",
       "instructorEmail": "yuko@example.com",
       "availableSeats": 15,
       "price": 100
     },
     {
       "className": "Japanese Intermediate",
-      "classImage": "image_url2.jpg",
+      "classImage": "https://i.ibb.co/p43pn9Q/pexels-photo-5211446.jpg",
       "instructorName": "Hiroshi Suzuki",
-      "instructorImage": "instructor_image_url2.jpg",
+      "instructorImage": "https://i.ibb.co/NWgDfmj/pexels-photo-1239288.jpg",
       "instructorEmail": "hiroshi@example.com",
       "availableSeats": 10,
       "price": 120
     },
     {
       "className": "Japanese Advanced",
-      "classImage": "image_url3.jpg",
+      "classImage": "https://i.ibb.co/zGGKnG6/pexels-photo-8617967.jpg",
       "instructorName": "Akiko Nakamura",
-      "instructorImage": "instructor_image_url3.jpg",
+      "instructorImage": "https://i.ibb.co/KXnLLvX/pexels-photo-3785110.jpg",
       "instructorEmail": "akiko@example.com",
       "availableSeats": 8,
       "price": 150
     },
     {
       "className": "Japanese for Kids",
-      "classImage": "image_url4.jpg",
+      "classImage": "https://i.ibb.co/ZWgtf5T/pexels-photo-8617956.jpg",
       "instructorName": "Miyuki Yamamoto",
-      "instructorImage": "instructor_image_url4.jpg",
+      "instructorImage": "https://i.ibb.co/8s2dVHT/pexels-photo-10031556.jpg",
       "instructorEmail": "miyuki@example.com",
       "availableSeats": 12,
       "price": 80
     },
     {
       "className": "Japanese Conversation",
-      "classImage": "image_url5.jpg",
+      "classImage": "https://i.ibb.co/V3jmtNz/pexels-photo-5211437.jpg",
       "instructorName": "Takeshi Nakamura",
-      "instructorImage": "instructor_image_url5.jpg",
+      "instructorImage": "https://i.ibb.co/kXpNLMP/pexels-photo-3812011.jpg",
       "instructorEmail": "takeshi@example.com",
       "availableSeats": 20,
       "price": 90
     },
     {
       "className": "Japanese Culture Workshop",
-      "classImage": "image_url6.jpg",
+      "classImage": "https://i.ibb.co/tp7H4Z6/pexels-photo-8466775.jpg",
       "instructorName": "Emi Sato",
-      "instructorImage": "instructor_image_url6.jpg",
+      "instructorImage": "https://i.ibb.co/gSzcQ3g/pexels-photo-2379005.jpg",
       "instructorEmail": "emi@example.com",
       "availableSeats": 5,
       "price": 70
