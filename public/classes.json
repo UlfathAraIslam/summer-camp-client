@@ -1,0 +1,57 @@
+[
+    {
+      "className": "Japanese Beginner",
+      "classImage": "image_url1.jpg",
+      "instructorName": "Yuko Tanaka",
+      "instructorImage": "instructor_image_url1.jpg",
+      "instructorEmail": "yuko@example.com",
+      "availableSeats": 15,
+      "price": 100
+    },
+    {
+      "className": "Japanese Intermediate",
+      "classImage": "image_url2.jpg",
+      "instructorName": "Hiroshi Suzuki",
+      "instructorImage": "instructor_image_url2.jpg",
+      "instructorEmail": "hiroshi@example.com",
+      "availableSeats": 10,
+      "price": 120
+    },
+    {
+      "className": "Japanese Advanced",
+      "classImage": "image_url3.jpg",
+      "instructorName": "Akiko Nakamura",
+      "instructorImage": "instructor_image_url3.jpg",
+      "instructorEmail": "akiko@example.com",
+      "availableSeats": 8,
+      "price": 150
+    },
+    {
+      "className": "Japanese for Kids",
+      "classImage": "image_url4.jpg",
+      "instructorName": "Miyuki Yamamoto",
+      "instructorImage": "instructor_image_url4.jpg",
+      "instructorEmail": "miyuki@example.com",
+      "availableSeats": 12,
+      "price": 80
+    },
+    {
+      "className": "Japanese Conversation",
+      "classImage": "image_url5.jpg",
+      "instructorName": "Takeshi Nakamura",
+      "instructorImage": "instructor_image_url5.jpg",
+      "instructorEmail": "takeshi@example.com",
+      "availableSeats": 20,
+      "price": 90
+    },
+    {
+      "className": "Japanese Culture Workshop",
+      "classImage": "image_url6.jpg",
+      "instructorName": "Emi Sato",
+      "instructorImage": "instructor_image_url6.jpg",
+      "instructorEmail": "emi@example.com",
+      "availableSeats": 5,
+      "price": 70
+    }
+  ]
+  
