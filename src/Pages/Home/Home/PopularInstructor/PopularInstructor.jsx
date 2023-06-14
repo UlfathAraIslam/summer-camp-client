@@ -6,19 +6,13 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
 import SectionTitle from '../../../../components/SectionTitle/SectionTitle';
+import useClasses from '../../../../hooks/useClasses';
 
 const PopularInstructor = () => {
-    const [popularInstructors, setPopularInstructors] = useState([]);
-    
-    useEffect(()=> {
-        fetch('classes.json')
-        .then(res => res.json())
-        .then(data => {
-            const filteredClasses = data.filter(item => item.category === 'popular');
-            const popularInstructors = filteredClasses.sort((a, b) => b.number_of_students - a.number_of_students)
-            setPopularInstructors(popularInstructors)
-        })
-    },[])
+    const [classes] = useClasses();
+
+    const filteredClasses =classes.filter(item => item.category === 'popular');
+    const popularInstructors = filteredClasses.sort((a, b) => b.number_of_students - a.number_of_students);
     return (
         <section>
             <SectionTitle

@@ -33,7 +33,7 @@ const Footer = () => {
                 <div>
                     <h1 className='text-2xl font-bold text-success '>JLLS</h1>
                 </div>
-                    <p>ACME Industries Ltd. <br />Providing reliable tech since 1992</p>
+                    <p>JLLS Industries Ltd. <br />Providing reliable tech since 1992</p>
                 </div>
                 <div className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4">
