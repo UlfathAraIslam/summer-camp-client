@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
@@ -11,7 +11,7 @@ const PopularClass = () => {
 
     const filteredClasses =classes.filter(item => item.category === 'popular');
     const popularClasses = filteredClasses.sort((a, b) => b.number_of_students - a.number_of_students);
-    
+
     return (
         <section>
             <SectionTitle
