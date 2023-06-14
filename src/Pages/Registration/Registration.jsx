@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Registration = () => {
     const {register, handleSubmit, formState: { errors }} = useForm();
 
+    const {createUser} = useContext(AuthContext);
+
     const onSubmit = data => {
         console.log(data);
+        createUser(data.email,data.password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -43,10 +51,10 @@ const Registration = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             {/* TODO: handling password error */}
-                            <input type="password" 
+                            <input type="text" 
                             {...register("password", {required: true,
                             minLength: 6,
-                            pattern: /(?=.*[A-Z])(?=.*[@#$%^&+=])/
+                            pattern: /(?=.*[A-Z])(?=.*[@#$%^&+=!])/
                              })} className="input input-bordered" />
 
                             {errors.password?.type === 'required' && <p className='text-orange-400'>Password is required</p>}
@@ -55,12 +63,12 @@ const Registration = () => {
 
                             {errors.password?.type === 'pattern' && <p className='text-orange-400'>Password must have a capital letter and a special charecter</p>}
                         </div>
-                        <div className="form-control">
+                        {/* <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Confirm Password</span>
                             </label>
                             <input type="password" {...register("password")} className="input input-bordered" />
-                        </div>
+                        </div> */}
                         <div className="form-control mt-6">
                             <input className="btn btn-success" type="submit" value='Registration' />
                         </div>
