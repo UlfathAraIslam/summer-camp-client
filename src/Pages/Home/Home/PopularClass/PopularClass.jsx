@@ -38,7 +38,7 @@ const PopularClass = () => {
                 <SwiperSlide 
                 key={_id}
                 >
-                    <h3 className='text-2xl uppercase bg-opacity-20 bg-success'>{classItem.className}</h3>
+                    <h3 className=' uppercase bg-opacity-20 bg-success'>{classItem.className}</h3>
                     <img src={classItem.classImage} alt={classItem.className} />
                 </SwiperSlide>
             ))
