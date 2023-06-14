@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const {signIn} = useContext(AuthContext);
 
     const handleLogin = event => {
         event.preventDefault();
@@ -8,6 +11,11 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+        signIn(email,password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
     }
 
     return (
@@ -33,6 +41,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <input  className="btn btn-success" type="submit" value='Login'  />
                         </div>
+                        <p><small>New Here? <Link to='/registration' className='text-success'>Create an Account</Link></small></p>
                     </form>
                 </div>
             </div>
