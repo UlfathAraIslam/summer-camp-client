@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Registration = () => {
-    const {register, handleSubmit, formState: { errors }} = useForm();
+    const {register, handleSubmit,reset, formState: { errors }} = useForm();
 
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updateUserProfile} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const onSubmit = data => {
         console.log(data);
@@ -15,6 +17,20 @@ const Registration = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            updateUserProfile(data.name, data.photoURL)
+            .then(() => {
+                console.log('user profile info updated');
+                reset();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User created successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  navigate('/');
+            })
+            .catch(error => console.log(error))
         })
     }
     return (
@@ -36,7 +52,7 @@ const Registration = () => {
                             <label className="label">
                                 <span className="label-text">PhotoURL</span>
                             </label>
-                            <input type="text" {...register("photoURL")} name='name' className="input input-bordered" />
+                            <input type="text" {...register("photoURL")} name='photoURL' className="input input-bordered" />
 
                         </div>
                         <div className="form-control">
@@ -50,8 +66,7 @@ const Registration = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            {/* TODO: handling password error */}
-                            <input type="text" 
+                            <input type="password" 
                             {...register("password", {required: true,
                             minLength: 6,
                             pattern: /(?=.*[A-Z])(?=.*[@#$%^&+=!])/
@@ -63,6 +78,8 @@ const Registration = () => {
 
                             {errors.password?.type === 'pattern' && <p className='text-orange-400'>Password must have a capital letter and a special charecter</p>}
                         </div>
+                        {/* TODO: handling confirm  password */}
+
                         {/* <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Confirm Password</span>

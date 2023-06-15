@@ -7,6 +7,7 @@ import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 
@@ -37,4 +38,8 @@ export const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path: '*',
+      element: <ErrorPage/>
+    }
   ]);
