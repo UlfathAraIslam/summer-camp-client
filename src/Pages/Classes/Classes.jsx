@@ -1,17 +1,64 @@
 import React, { useContext } from 'react';
 import useClasses from '../../hooks/useClasses';
 import { AuthContext } from '../../providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import {useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import useSelectedClasses from '../../hooks/useSelectedClasses';
 
 const Classes = () => {
     const [classes] = useClasses();
+    const {_id,className,instructorName,availableSeats,number_of_students,price} = classes;
     const { user } = useContext(AuthContext);
+    const [, refetch] = useSelectedClasses();
+    const navigate = useNavigate();
+    const location = useLocation();
 
-    const handleSelectButtonClick = () => {
-        if (!user){
-            alert('please log in to select the course')
+
+    const handleAddToSelect = (classItem) => {
+        console.log('select', classItem);
+        if (user && user.email) {
+            const selectItem = {classId: _id,className,instructorName,availableSeats,number_of_students,price, email: user.email}
+            fetch('http://localhost:5000/selectedClasses', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application.json'
+                },
+                body: JSON.stringify(selectItem)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        refetch();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'selected course successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                    
+                })
         }
+        else {
+            Swal.fire({
+                title: 'Please login to select classes',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login now!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                   navigate('/login', {state: {from: location}})
+                }
+            })
+
+        }
+
     }
+
     return (
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 
@@ -27,7 +74,7 @@ const Classes = () => {
                             <p>{classItem.availableSeats}</p>
                             <p>${classItem.price}</p>
 
-                            <Link><button className="btn btn-outline font-bold btn-success" onClick={handleSelectButtonClick}>Select</button></Link>
+                            <button className="btn btn-outline font-bold btn-success" onClick={() => handleAddToSelect(classItem)}>Select</button>
                         </div>
 
 

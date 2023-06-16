@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import useSelectedClasses from '../../../hooks/useSelectedClasses';
 
 const Navbar = () => {
 
     const {user, logOut} = useContext(AuthContext);
+    const [selectedClasses] = useSelectedClasses();
 
     const handleLogOut = () => {
         logOut()
@@ -16,7 +18,7 @@ const Navbar = () => {
        <li><Link to='/'>Home</Link></li>
        <li><Link to='/instructors'>Instructors</Link></li>
        <li><Link to='/classes'>Classes</Link></li>
-       <li><Link to='/'>Dashboard</Link></li>
+       <li><Link to='/dashboard/myselectedclasses'>MySelectedClasses</Link></li>
     </>
     return (
         <div className="navbar fixed z-10 bg-opacity-20 bg-success max-w-screen-xl text-white font-bold">
