@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import useClasses from '../../hooks/useClasses';
 import { AuthContext } from '../../providers/AuthProvider';
-import {useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useSelectedClasses from '../../hooks/useSelectedClasses';
 
 const Classes = () => {
     const [classes] = useClasses();
-    const {_id,className,instructorName,availableSeats,number_of_students,price} = classes;
+    const { _id, className, instructorName, availableSeats, number_of_students, price } = classes;
     const { user } = useContext(AuthContext);
     const [, refetch] = useSelectedClasses();
     const navigate = useNavigate();
@@ -17,12 +17,23 @@ const Classes = () => {
     const handleAddToSelect = (classItem) => {
         console.log('select', classItem);
         if (user && user.email) {
-            const selectItem = {classId: _id,className,instructorName,availableSeats,number_of_students,price, email: user.email}
+            const selectItem = {
+                classId: classItem._id,
+                className: classItem.className,
+                instructorName: classItem.instructorName,
+                availableSeats: classItem.availableSeats, number_of_students: classItem.number_of_students,
+                price: classItem.price,
+                image: classItem.image,
+                email: user.email
+            };
+            console.log(selectItem);
             fetch('http://localhost:5000/selectedClasses', {
                 method: 'POST',
                 headers: {
-                    'content-type': 'application.json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
                 },
+
                 body: JSON.stringify(selectItem)
             })
                 .then(res => res.json())
@@ -37,7 +48,7 @@ const Classes = () => {
                             timer: 1500
                         });
                     }
-                    
+
                 })
         }
         else {
@@ -51,7 +62,7 @@ const Classes = () => {
                 confirmButtonText: 'Login now!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                   navigate('/login', {state: {from: location}})
+                    navigate('/login', { state: { from: location } })
                 }
             })
 
