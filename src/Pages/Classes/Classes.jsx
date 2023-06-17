@@ -7,7 +7,6 @@ import useSelectedClasses from '../../hooks/useSelectedClasses';
 
 const Classes = () => {
     const [classes] = useClasses();
-    const { _id, className, instructorName, availableSeats, number_of_students, price } = classes;
     const { user } = useContext(AuthContext);
     const [, refetch] = useSelectedClasses();
     const navigate = useNavigate();

@@ -15,10 +15,10 @@ const Navbar = () => {
     }
 
     const navOptions = <>
-       <li><Link to='/'>Home</Link></li>
-       <li><Link to='/instructors'>Instructors</Link></li>
-       <li><Link to='/classes'>Classes</Link></li>
-       <li><Link to='/dashboard/myselectedclasses'>MySelectedClasses</Link></li>
+       <li className='text-black'><Link to='/'>Home</Link></li>
+       <li className='text-black' ><Link to='/instructors'>Instructors</Link></li>
+       <li className='text-black'><Link to='/classes'>Classes</Link></li>
+       <li className='text-black'><Link to='/dashboard'>Dashboard</Link></li>
     </>
     return (
         <div className="navbar fixed z-10 bg-opacity-20 bg-success max-w-screen-xl text-white font-bold">
