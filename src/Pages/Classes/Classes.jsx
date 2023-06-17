@@ -26,7 +26,7 @@ const Classes = () => {
                 email: user.email
             };
             console.log(selectItem);
-            fetch('http://localhost:5000/selectedClasses', {
+            fetch('https://b7a12-summer-camp-server-side-ulfath-ara-islam.vercel.app/selectedClasses', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

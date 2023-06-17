@@ -8,7 +8,7 @@ const useAxioSecure = () => {
     const navigate = useNavigate();
 
     const axiosSecure = axios.create({
-        baseURL: 'http://localhost:5000',
+        baseURL: 'https://b7a12-summer-camp-server-side-ulfath-ara-islam.vercel.app',
     })
 
     useEffect(() => {

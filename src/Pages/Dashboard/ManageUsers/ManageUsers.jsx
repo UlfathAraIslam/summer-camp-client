@@ -5,12 +5,12 @@ import Swal from 'sweetalert2';
 
 const ManageUsers = () => {
     const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/users')
+        const res = await fetch('https://b7a12-summer-camp-server-side-ulfath-ara-islam.vercel.app/users')
         return res.json();
     })
 
     const handleMakeAdmin = user => {
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        fetch(`https://b7a12-summer-camp-server-side-ulfath-ara-islam.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
         })
        .then(res => res.json())

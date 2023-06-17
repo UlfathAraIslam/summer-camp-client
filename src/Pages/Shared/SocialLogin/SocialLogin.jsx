@@ -18,7 +18,7 @@ const SocialLogin = () => {
             const saveUser = {name: loggedInUser.displayName, email: loggedInUser.email }
 
             // TODO: user isn't added in database
-            fetch('http://localhost:5000/users',{
+            fetch('https://b7a12-summer-camp-server-side-ulfath-ara-islam.vercel.app/users',{
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

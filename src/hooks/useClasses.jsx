@@ -5,7 +5,7 @@ const useClasses = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(()=> {
-        fetch('http://localhost:5000/classes')
+        fetch('https://b7a12-summer-camp-server-side-ulfath-ara-islam.vercel.app/classes')
         .then(res => res.json())
         .then(data => {
             
