@@ -22,7 +22,7 @@ Install dependencies:
 
 ## Usages
 
-Once the server is running, open a web browser and navigate to ... to access the application
+Once the server is running, open a web browser and navigate to https://vermillion-zabaione-61b540.netlify.app/ to access the application
 
 ## Features
 
@@ -42,4 +42,4 @@ This project includes the following features:
 - useAuth
 
 ## Live Site
-You can view a live demo of the project at 
+You can view a live demo of the project at https://vermillion-zabaione-61b540.netlify.app/
