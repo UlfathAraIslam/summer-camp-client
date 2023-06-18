@@ -13,6 +13,10 @@ const Navbar = () => {
         .then(() => {})
         .catch(error => console.log(error));
     }
+    const handleDark = ()=> {
+        const html = document.querySelector('html');
+        html.classList.toggle('dark');
+    }
 
     const navOptions = <>
        <li className='text-black'><Link to='/'>Home</Link></li>
@@ -47,7 +51,9 @@ const Navbar = () => {
                     <>
                     <Link to='/login'><button className="btn btn-outline btn-success font-extrabold">Login</button></Link>
                     </>
+                   
                 }
+                <button  onClick={handleDark} className="btn btn-outline btn-success font-extrabold mr-5 ms-5">Dark Mode</button>
 
             </div>
         </div>

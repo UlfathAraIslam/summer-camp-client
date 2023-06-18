@@ -12,7 +12,10 @@ const useSelectedClasses = () => {
 
         queryFn: async () => {
             const res = await fetch(`https://b7a12-summer-camp-server-side-ulfath-ara-islam.vercel.app/selectedClasses?email=${user?.email}`)
-            return res.data;
+            const data = await res.json();
+            console.log(data);
+
+            return data;
 
         },
     })

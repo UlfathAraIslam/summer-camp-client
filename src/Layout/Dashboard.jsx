@@ -12,7 +12,7 @@ const Dashboard = () => {
     // const isAdmin = useAdmin();
     // console.log(isAdmin);
     return (
-        <>
+        <div className='dark:bg-neutral-content'>
 
             <div className="drawer lg:drawer-open sm:drawer-open md:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle " />
@@ -59,7 +59,7 @@ const Dashboard = () => {
 
                 </div>
             </div>
-        </>
+        </div>
 
     );
 };

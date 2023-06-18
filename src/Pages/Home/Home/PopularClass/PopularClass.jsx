@@ -15,9 +15,11 @@ const PopularClass = () => {
     return (
         <section>
             <SectionTitle
+            
             heading={'Popular Classes'}
             subHeading={'based on the number of student'}
             />
+            
             <Swiper
         slidesPerView={4}
         spaceBetween={30}
